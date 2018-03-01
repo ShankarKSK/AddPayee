@@ -25,6 +25,8 @@ public class PayeeService {
 		return dao.getAxisAccDetails(acc_num,phone_num);
 		
 	}
+	
+	
 
 	public Boolean checkBeneExist(String ownCust_num, String bene_acc_no) {
 		

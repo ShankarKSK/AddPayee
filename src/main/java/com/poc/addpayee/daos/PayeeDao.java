@@ -74,6 +74,8 @@ public class PayeeDao {
 		
 		
 	}
+	
+	
 
 	public Boolean checkBeneExist(String ownCust_Id, String bene_acc_no) {
 		String sql = "SELECT BENE_ID FROM mxaxisbankbenemtb WHERE customer_id = '"+ownCust_Id+"' and bene_acc_no ='"+bene_acc_no+"'";

@@ -43,6 +43,16 @@ public class AddPayeeController {
 		
 	}
 	
+	
+	@RequestMapping(value="/axisOneCust",method=RequestMethod.GET)
+	public AxisAccountModel getUserAccFromAxis(@RequestParam(value="cust_Id", required=true) String cust_Id){
+		
+		AxisAccountModel axisAcc = new AxisAccountModel();
+		axisAcc = payeeService.getAxisAccDetailsByCustID(cust_Id);
+		return axisAcc;
+		
+	}
+	
 	@RequestMapping(value="/addAxis" ,method=RequestMethod.POST)
 	public ResponseEntity addTOAxisPayeeList(@RequestParam(value="ownCust_num", required=true) String ownCust_num,
 			@RequestBody AxisAccountModel person){
@@ -50,6 +60,7 @@ public class AddPayeeController {
 		if(person.getUser_Acc_num() != null){
 			boolean isAlreadyExist  = payeeService.checkBeneExist(ownCust_num,person.getUser_Acc_num());
 			if(!isAlreadyExist){
+				System.out.println("Adding to DB");
 				payeeService.insertAxisPayee(person,ownCust_num);
 			}
 		}
