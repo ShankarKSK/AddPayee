@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 public interface BeneficiaryMediator {
 	
 	
-	<T> List<T> fetchDataBasedOnBank(String type) ;
+	<T> List<T> fetchDataBasedOnBank(String type,String cust_id) ;
 	List insertRecepient(String requestBody,String type)throws JsonParseException, JsonMappingException, IOException;
 	List<?> searchRecepient(String acc_num,String phone_num,String cust_id,String type);
 /*	public boolean checkBeneExist(String ownCust_Id, String bene_acc_no) {

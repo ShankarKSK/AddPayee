@@ -37,18 +37,18 @@ public class BeneficiaryMediatorImpl implements BeneficiaryMediator{
 /*	@Autowired
 	ValidationHelper validationHelper;*/
 	@Override
-	public  List<?> fetchDataBasedOnBank(String type) {
+	public  List<?> fetchDataBasedOnBank(String type,String cust_id) {
 		List<?> resultList = new ArrayList<>();
 		if (type.equalsIgnoreCase("Axis")) {
-			resultList = (List<?>) axisBankBenRep.findAll();
+			resultList = (List<?>) axisBankBenRep.searchRecipientCustId(cust_id);
 		} else if (type.equalsIgnoreCase("Nonaxis")) {
-			resultList = (List<?>) otherBankRep.findAll();
+			resultList = (List<?>) otherBankRep.searchRecipientCustId(cust_id);
 		}else if(type.equalsIgnoreCase("VMT")){
-			resultList = (List<?>) vmtRepository.findAll();
+			resultList = (List<?>) vmtRepository.searchRecipientCustId(cust_id);
 		}else if(type.equalsIgnoreCase("Pull")){
-			resultList = (List<?>) pullFundRepository.findAll();
+			resultList = (List<?>) pullFundRepository.searchRecipientCustId(cust_id);
 		}else if(type.equalsIgnoreCase("Upi")){
-			resultList = (List<?>) upiRepository.findAll();
+			resultList = (List<?>) upiRepository.searchRecipientCustId(cust_id);
 		}
 		return resultList;
 	}

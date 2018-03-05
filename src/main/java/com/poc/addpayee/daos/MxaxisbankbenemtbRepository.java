@@ -13,10 +13,9 @@ import com.poc.addpayee.model.Mxotherbankbenemtb;
 
 public interface MxaxisbankbenemtbRepository extends JpaRepository<Mxaxisbankbenemtb, Integer> {
 	
-		
-	@Query(value="SELECT axis FROM Mxaxisbankbenemtb axis WHERE axis.customer_id = ?1")
-	public ArrayList<Mxotherbankbenemtb> searchRecipientCustId(String ownCust_Id);
 	
+	@Query(value="SELECT axis FROM Mxaxisbankbenemtb axis WHERE axis.customer_id = ?1")
+	public ArrayList<Mxaxisbankbenemtb> searchRecipientCustId(String ownCust_Id);
 	
 	@Query(value="SELECT axis FROM Mxaxisbankbenemtb axis WHERE axis.bene_acc_no = ?1")
 	public ArrayList<Mxaxisbankbenemtb> searchRecipientAccNum(String acc_num);

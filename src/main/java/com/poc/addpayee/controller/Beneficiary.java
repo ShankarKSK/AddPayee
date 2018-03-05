@@ -35,12 +35,13 @@ public class Beneficiary {
 	MxaxisbankbenemtbRepository usersRepository;
 	
 	@GetMapping(value="/getRecipients")
-	public ResponseEntity getAll(@RequestParam(value ="type",required=false ,defaultValue="Axis") String type)
+	public ResponseEntity getAll(@RequestParam(value ="type",required=false ,defaultValue="Axis") String type,
+			@RequestParam(value ="custId",required=true) String cust_id	)
 	{
 		ResponseEntity responseEntity;
 		List responseList;
 		try{
-			responseList  =beneficiaryMediator.fetchDataBasedOnBank(type);
+			responseList  =beneficiaryMediator.fetchDataBasedOnBank(type,cust_id);
 			responseEntity = new ResponseEntity(usersRepository.findAll(),HttpStatus.OK);
 		}catch(Exception e){
 			responseEntity = new ResponseEntity("Invalid input",HttpStatus.BAD_REQUEST);
