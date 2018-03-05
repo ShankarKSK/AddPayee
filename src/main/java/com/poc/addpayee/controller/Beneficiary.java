@@ -42,7 +42,7 @@ public class Beneficiary {
 		List responseList;
 		try{
 			responseList  =beneficiaryMediator.fetchDataBasedOnBank(type,cust_id);
-			responseEntity = new ResponseEntity(usersRepository.findAll(),HttpStatus.OK);
+			responseEntity = new ResponseEntity(responseList,HttpStatus.OK);
 		}catch(Exception e){
 			responseEntity = new ResponseEntity("Invalid input",HttpStatus.BAD_REQUEST);
 		}
